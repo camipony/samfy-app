@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
+
+p , h4{
+  font-family: 'Poppins', sans-serif;
+  color: black;
+}
+
+
+button{
+  background-color: #B566D5;
+  border: #B566D5;
+}
+
+button:hover{
+  background-color: #000000;
+  color: white;
+}
