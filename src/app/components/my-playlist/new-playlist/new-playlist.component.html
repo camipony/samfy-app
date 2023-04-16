@@ -2,11 +2,11 @@
   <form>
     <div class="form-group">
       <label for="name">Nombre de la playlist</label>
-      <input type="text" class="form-control" placeholder="Pop Español" id="name" required>
+      <input type="text" class="form-control" placeholder="Pop Español" id="name" name="name" required>
     </div>
     <div class="form-group">
       <label for="description">Descripción de la playlist</label>
-      <textarea class="form-control" id="description" rows="3" placeholder="Playlist de Pop en Español"></textarea>
+      <textarea class="form-control" id="description" rows="3" name="description" placeholder="Playlist de Pop en Español"></textarea>
     </div>
     <button type="submit" (click)="createPlaylist()" class="btn btn-primary">Agregar Playlist</button>
   </form>

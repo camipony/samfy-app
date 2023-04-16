@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +10,11 @@ import { map } from 'rxjs/operators';
 
 export class SpotifyService {
   private apiUrl = 'https://api.spotify.com/v1';
-  public userid = "";
-  public credentials = {
+  private userId: string;
 
-    clientId: 'd54dcc3d0b7f4ae68d40fcbcf0d78cf7',
-    clientSecret: '827beecdf83b45ebabaf290bddce5a42',
+  public credentials = {
+    clientId: '508b858fa28d45faa13d921782025686',
+    clientSecret: '7cb75e09b3324cd4bf4201d28acb05c6',
     privateScope: 'user-read-private',
     scopes: ['playlist-read-private', 'user-read-private', 'playlist-modify-public', 'playlist-modify-private'],
     publicEmail: 'user-read-email',
@@ -124,25 +124,19 @@ export class SpotifyService {
     return this._http.get('https://api.spotify.com/v1/me/playlists?limit=12', { headers });
   }
 
-  createPlaylist(name: string, description: string): Observable<any> {
-    var userid = "";
-
+  getUserId(): Observable<any> {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.credentials.accessToken}`
     });
-
-    this._http.get('https://api.spotify.com/v1/me', {headers}).subscribe((data:any) => {
-    userid = data.id;
-    });
-
-    const body = {
-      name: name,
-      description: description,
-      public: false
-    };
-
-    return this._http.post(`${this.apiUrl}/users/${userid}/playlists`, body, { headers: headers });
+    return this._http.get(`${this.apiUrl}/me`, {headers});
   }
 
+  createPlaylist(name: string, description: string, userId:string): Observable<any> {
+        console.log("user2 "+userId+ " name2 "+name+ " des2 "+description)
+        const url = `${this.apiUrl}/users/${userId}/playlists`;
+        const body = { name, description };
+        return this._http.post(url, body);
+
+  }
 
 }
