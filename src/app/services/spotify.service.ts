@@ -11,10 +11,9 @@ import { map, switchMap } from 'rxjs/operators';
 export class SpotifyService {
   private apiUrl = 'https://api.spotify.com/v1';
   private userId: string;
-
   public credentials = {
-    clientId: '508b858fa28d45faa13d921782025686',
-    clientSecret: '7cb75e09b3324cd4bf4201d28acb05c6',
+    clientId: '9e45aeeb9cd44b90aa65a294f4319833',
+    clientSecret: '7e09b84c736b4892b7ff350b113ac545',
     privateScope: 'user-read-private',
     scopes: ['playlist-read-private', 'user-read-private', 'playlist-modify-public', 'playlist-modify-private'],
     publicEmail: 'user-read-email',
@@ -44,12 +43,8 @@ export class SpotifyService {
     return this._http.get(URL, HEADER);
   }
 
-  getProfile() {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.credentials.accessToken}`
-    });
-
-    return this._http.get('https://api.spotify.com/v1/me', { headers });
+  getProfile(): Observable<any>{
+    return this.getQuery(`me`)
   }
 
   checkTokenSpoLogin() {
@@ -62,12 +57,10 @@ export class SpotifyService {
 
 
   tokenRefreshURL() {
-
     this.checkTokenSpo() && alert('Expiro la sesión');
     this.credentials.accessToken = '';
     sessionStorage.removeItem('token');
     this.checkTokenSpoLogin();
-
   }
 
 
@@ -82,16 +75,10 @@ export class SpotifyService {
   }
 
   getArtistas(termino: string) {
-
     return this.getQuery(`search?q=${termino}&type=artist&limit=15`)
       .pipe(map((data: any) => {
         return data.artists.items;
       }));
-
-    // this.http.get(`https://api.spotify.com/v1/search?q=${ termino }&type=artist&limit=15`, {headers})
-    //     .pipe(map( (data: any) => {
-    //       return data.artists.items;
-    //     }));
   }
 
 
@@ -117,26 +104,25 @@ export class SpotifyService {
       }));
   }
 
-  getMyPlaylists(): Observable<any> {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.credentials.accessToken}`
-    });
-    return this._http.get('https://api.spotify.com/v1/me/playlists?limit=12', { headers });
-  }
-
-  getUserId(): Observable<any> {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.credentials.accessToken}`
-    });
-    return this._http.get(`${this.apiUrl}/me`, {headers});
+  getMyPlaylists(){
+    return this.getQuery(`me/playlists?limit=12`)
   }
 
   createPlaylist(name: string, description: string, userId:string): Observable<any> {
-        console.log("user2 "+userId+ " name2 "+name+ " des2 "+description)
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.credentials.accessToken}`
+    });
         const url = `${this.apiUrl}/users/${userId}/playlists`;
         const body = { name, description };
-        return this._http.post(url, body);
+        const response = this._http.post(url, body, {headers});
+        return response;
+  }
 
+  getPlaylistTracks(id: string) {
+    return this.getQuery(`playlists/${id}/tracks`)
+      .pipe(map((data: any) => {
+        return data["tracks"];
+      }));
   }
 
 }

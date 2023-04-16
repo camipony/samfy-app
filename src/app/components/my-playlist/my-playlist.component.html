@@ -9,7 +9,9 @@
     <div class="content">
     <a href="{{ playlist.external_urls.spotify }}">{{playlist.name}}</a>
     <h3>Canciones: {{playlist.tracks.total}}</h3>
-    <button class="btn btn-primary" (click)="crearPlaylist()">Ver más</button>
+    <h3>id: {{playlist.id}}</h3>
+
+    <button class="btn btn-primary" (click)="goToSong(playlist.id)">Ver más</button>
   </div>
   </div>
 </div>

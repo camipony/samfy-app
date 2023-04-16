@@ -3,6 +3,7 @@
 }
 .card {
   transition: all 0.5s ease-in-out;
+  align-items: center;
 }
 .card:hover {
   transform: scale(90%);

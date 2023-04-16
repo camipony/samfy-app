@@ -11,6 +11,7 @@ export class ArtistaComponent implements OnInit {
   topTracks: any = {};
   loadingArtist?: boolean;
 
+
   constructor( private router: ActivatedRoute, private spotify: SpotifyService) {
     this.router.params.subscribe( params => {
       // console.log(params["id"])
@@ -24,7 +25,6 @@ export class ArtistaComponent implements OnInit {
   getArtista( id: string ) {
     this.spotify.getArtista(id)
       .subscribe(artista => {
-        console.log(artista)
         this.artista = artista
         this.loadingArtist = false;
       })
@@ -33,7 +33,6 @@ export class ArtistaComponent implements OnInit {
   getTopTracks(id: string) {
     this.spotify.getTopTracks(id)
       .subscribe(tracks => {
-        console.log(tracks)
         this.topTracks = tracks
       })
   }

@@ -1,9 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+table{
+  color: white;
+}
+
+.container button {
+  margin-top: 50px;
+  background-color: #B566D5;
+  border: #B566D5;
+  color: white;
+}
+
+.container button:hover {
+  background-color: white;
+  color: #B566D5;
+}
+
+.cont-artista {
+  display: flex;
+  flex-direction: row;
+}
+
+.cont-artista img {
+  width: 300px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  justify-content: center;
+}
+
+.info h1 {
+  font-weight: bold;
+  font-size: 60px;
+}
+
+.info span {
+  font-size: 20px;
+  color: #B566D5;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
 .artist-banner {
   width: 100%;
   height: auto;
 }
+
 .artist-banner .artist-banner-image {
   width: 100%;
   height: 100%;
@@ -11,7 +60,56 @@
   object-fit: cover;
   object-position: 50% 40%;
 }
+
 .follower-count {
   font-size: 0.4em;
   color: #acacac;
+}
+
+
+a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #B566D5;
+}
+
+
+@media (max-width: 768px) {
+
+  .container button {
+    margin-top: 50px;
+    margin-left: 25px;
+  }
+
+  .cont-artista {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0px;
+    margin-top: 20px;
+    align-items: center;
+  }
+
+  .info h1 {
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  .info a {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+
+  .info span {
+    margin-bottom: 10px;
+  }
+
 }

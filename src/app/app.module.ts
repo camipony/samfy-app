@@ -20,6 +20,7 @@ import { PlaylistComponent } from './components/playlist/playlist.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { MyPlaylistComponent } from './components/my-playlist/my-playlist.component';
 import { NewPlaylist } from './components/my-playlist/new-playlist/new-playlist.component';
+import { TracksPlaylistComponent } from './components/playlist/tracks-playlist/tracks-playlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { NewPlaylist } from './components/my-playlist/new-playlist/new-playlist.
     PlaylistComponent,
     UsuarioComponent,
     MyPlaylistComponent,
-    NewPlaylist
+    NewPlaylist,
+    TracksPlaylistComponent
   ],
   imports: [
     BrowserModule,

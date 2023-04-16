@@ -16,7 +16,6 @@ export class UsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.spotify.getProfile().subscribe((data: any) => {
       this.profile = data;
-      console.log("data "+this.profile.product+" data2: "+data.product)
     })
   }
 

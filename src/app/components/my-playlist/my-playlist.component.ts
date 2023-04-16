@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from 'src/app/services/spotify.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-playlist',
@@ -9,7 +10,7 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 export class MyPlaylistComponent implements OnInit {
   playlists: any[] = [];
 
-  constructor(private SpotifyService: SpotifyService) { }
+  constructor(private SpotifyService: SpotifyService, private router: Router) { }
 
   ngOnInit(): void {
     this.SpotifyService.getMyPlaylists().subscribe(
@@ -26,7 +27,8 @@ export class MyPlaylistComponent implements OnInit {
     window.location.replace('/#/newplaylist')
   }
 
-  crearPlaylist(){
+  goToSong(playlistId:string){
+    this.router.navigate(['tracks/', playlistId]);
 
   }
 

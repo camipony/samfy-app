@@ -28,19 +28,16 @@ export class HomeComponent {
         this.loading = false;
         this.error = true;
         this.mensajeError = errorServicio.error.error.message;
-        console.log(errorServicio);
       });
 
     this.spotify.getFeaturedPlaylists()
     .subscribe((data: any) => {
       this.nuevaPlaylists = data
-      console.log(data)
       this.loading = false;
     }, (errorServicio)=> {
       this.loading = false;
       this.error = true;
       this.mensajeErrorPlaylist = errorServicio.error.error.message;
-      console.log(errorServicio);
     });
   }
 

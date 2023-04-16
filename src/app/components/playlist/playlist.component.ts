@@ -17,7 +17,7 @@ export class PlaylistComponent implements OnInit {
     this.router.params.subscribe( params => {
       this.loadingPlaylist = true;
       this.getPlaylist( params["id"])
-      // this.getTopPlaylistTracks( params["id"])
+      this.getTopPlaylistTracks( params["id"])
     })
 
   }
@@ -25,19 +25,18 @@ export class PlaylistComponent implements OnInit {
   getPlaylist( id: string ) {
     this.spotify.getPlaylist(id)
       .subscribe(playlist => {
-        console.log(playlist)
         this.playlist = playlist
         this.loadingPlaylist = false;
       })
   }
 
-  // getTopPlaylistTracks(id: string) {
-  //   this.spotify.getTopPlaylistTracks(id)
-  //     .subscribe(tracks => {
-  //       console.log(tracks)
-  //       this.topTracks = tracks
-  //     })
-  // }
+  getTopPlaylistTracks(id: string) {
+    this.spotify.getTopPlaylistTracks(id)
+       .subscribe(tracks => {
+         console.log(tracks)
+         this.topTracks = tracks
+       })
+   }
 
   ngOnInit(): void {
   }
