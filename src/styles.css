@@ -1,11 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
 body {
   background-image: url(https://media.giphy.com/media/UYBDCJjwOd9Re/giphy.gif);
   color: white !important;
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
-}
+  font-family: 'Poppins', sans-serif;}
 hr {
   border-color: white;
 }

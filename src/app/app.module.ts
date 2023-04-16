@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -20,7 +19,7 @@ import { PlaylistCardComponent } from './components/playlist-card/playlist-card.
 import { PlaylistComponent } from './components/playlist/playlist.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { MyPlaylistComponent } from './components/my-playlist/my-playlist.component';
-
+import { NewPlaylist } from './components/my-playlist/new-playlist/new-playlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,13 +35,14 @@ import { MyPlaylistComponent } from './components/my-playlist/my-playlist.compon
     PlaylistCardComponent,
     PlaylistComponent,
     UsuarioComponent,
-    MyPlaylistComponent
+    MyPlaylistComponent,
+    NewPlaylist
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES, {useHash: true})
-   
+
   ],
   providers: [
     SpotifyService, AuthGuardService

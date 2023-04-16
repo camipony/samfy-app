@@ -21,4 +21,13 @@ export class MyPlaylistComponent implements OnInit {
       }
     );
   }
+
+  redirectTo(url: string) {
+    window.location.replace('/#/newplaylist')
+  }
+
+  crearPlaylist(){
+
+  }
+
 }

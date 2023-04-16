@@ -8,6 +8,8 @@ import {AuthGuardService} from './services/auth-guard.service';
 import { PlaylistComponent } from './components/playlist/playlist.component';
 import { MyPlaylistComponent } from './components/my-playlist/my-playlist.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
+import { NewPlaylist } from './components/my-playlist/new-playlist/new-playlist.component';
+
 
 export const ROUTES: Routes = [
   { path: "home", component: HomeComponent, canActivate: [AuthGuardService]},
@@ -16,6 +18,7 @@ export const ROUTES: Routes = [
   { path: "artist/:id", component: ArtistaComponent, canActivate: [AuthGuardService]},
   { path: "playlist/:id", component: PlaylistComponent, canActivate: [AuthGuardService]},
   { path: "myplaylist", component: MyPlaylistComponent, canActivate: [AuthGuardService]},
+  { path: "newplaylist", component: NewPlaylist, canActivate: [AuthGuardService]},
   { path: "access_token", component: AccessTokenComponent},
   { path: '', pathMatch: 'full', redirectTo: 'home'},
   { path: '**', pathMatch: 'full', redirectTo: 'home'},

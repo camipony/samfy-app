@@ -1,5 +1,15 @@
-<h2>Mis listas de reproducción de Spotify</h2>
 
-<div *ngFor="let playlist of playlists">
-  <img [src]="playlist.images[0].url" alt>
+<div class="flex-row align-items-center">
+  <h1>My playlist's</h1>
+  <button class="btn btn-primary" (click)="redirectTo('/newplaylist')">Crear nueva playlist <i class="fa fa-plus"></i></button>
+</div>
+<div class="playlist-grid">
+  <div class="playlist-card" *ngFor="let playlist of playlists">
+    <img src="{{ playlist.images[0].url }}" alt="{{ playlist.name }}">
+    <div class="content">
+    <a href="{{ playlist.external_urls.spotify }}">{{playlist.name}}</a>
+    <h3>Canciones: {{playlist.tracks.total}}</h3>
+    <button class="btn btn-primary" (click)="crearPlaylist()">Ver más <i class="fa fa-plus"></i></button>
+  </div>
+  </div>
 </div>
