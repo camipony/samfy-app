@@ -41,4 +41,8 @@ export class HomeComponent {
     });
   }
 
+  redirectTo(url: string) {
+    window.location.replace('/#/newplaylist')
+  }
+
 }

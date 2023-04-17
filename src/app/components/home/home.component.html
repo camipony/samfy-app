@@ -3,15 +3,12 @@
     <div class="gradient-black">
       <div class="hero-message">
         <div class="hero-message-container">
-          <h1>La <span>musica</span> nos une a todos</h1>
-          <h4>Encuentra tu musica favorita y revive tus mejores momentos a través de ella.</h4>
+          <h1><span>Samfy</span> ya está aquí ✨</h1>
+          <h4>Vive tus mejores experiencias.</h4>
+          <button class="btn btn-primary" (click)="redirectTo('/newplaylist')">Quiero crear mi playlist <i class="bi-arrow-right"></i></button>
         </div>
       </div>
     </div>
-    <video autoplay muted loop id="hero-banner-video"
-      poster="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80">
-      <source src="../../../assets/videos/edm_concert.mp4" type="video/mp4">
-    </video>
   </div>
 </section>
 <app-loading *ngIf="loading"></app-loading>

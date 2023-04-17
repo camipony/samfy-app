@@ -2,10 +2,12 @@
   width: 100%;
   height: 95vh;
 }
+
 .wrapper {
   position: absolute;
   width: 100vw;
 }
+
 .gradient-black {
   background-image: url(https://media.giphy.com/media/UYBDCJjwOd9Re/giphy.gif);
   min-width: 100%;
@@ -15,6 +17,7 @@
   position: relative;
   z-index: 1;
 }
+
 .hero-message {
   width: 100%;
   height: 100%;
@@ -23,23 +26,27 @@
   align-items: center;
   flex-direction: column;
 }
+
 .hero-message h1 {
   font-size: 3em;
   text-transform: uppercase;
 }
+
 .hero-message h1 span {
   font-size: 3.5em;
   color: #B566D5;
   font-weight: 700;
 }
-#hero-banner-video {
-  position: absolute;
-  top: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+
+
+.btn-primary {
+  margin-top: 40px;
+  background-color: #B566D5;
+  color: white;
+  font-size: 30px;
+  border: #B566D5;
 }
+
 .card-container-new-releases {
   position: relative;
   z-index: 2;
@@ -47,7 +54,7 @@
 
 
 @media (max-width: 768px) {
-  .hero-banner{
+  .hero-banner {
     display: none;
   }
 }

@@ -5,12 +5,10 @@
 </div>
 <div class="playlist-grid">
   <div class="playlist-card" *ngFor="let playlist of playlists">
-    <img src="{{ playlist.images[0].url }}" alt="{{ playlist.name }}">
+    <img src="../../../assets/img/1.png" alt="{{ playlist.name }}">
     <div class="content">
     <a href="{{ playlist.external_urls.spotify }}">{{playlist.name}}</a>
     <h3>Canciones: {{playlist.tracks.total}}</h3>
-    <h3>id: {{playlist.id}}</h3>
-
     <button class="btn btn-primary" (click)="goToSong(playlist.id)">Ver más</button>
   </div>
   </div>

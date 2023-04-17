@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class UsuarioComponent implements OnInit {
 
   profile: any;
 
-  constructor( private router: ActivatedRoute, private spotify: SpotifyService) { }
+  constructor( private actrouter: ActivatedRoute, private router: Router, private spotify: SpotifyService) { }
 
   ngOnInit(): void {
     this.spotify.getProfile().subscribe((data: any) => {
@@ -19,8 +19,8 @@ export class UsuarioComponent implements OnInit {
     })
   }
 
-  redirectTo(url: string) {
-    window.open(url, '_blank');
+  redirectTo() {
+    this.router.navigate(['/search']);
   }
 
 }
