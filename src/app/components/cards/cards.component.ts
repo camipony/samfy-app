@@ -10,7 +10,6 @@ export class CardsComponent implements OnInit {
 
   @Input() items: any[] = [];
   constructor( private router: Router) { }
-
   verArtista( item: any ) {
     let artistaId;
 
