@@ -7,12 +7,12 @@
     <app-loading *ngIf="loadingArtist"></app-loading>
     <div *ngIf="!loadingArtist" class="row animated fadeIn pt-5">
         <div class="cont-artista">
-                <img [src]="artista.images | noimage" class="artist-banner-image">
+                <img [src]="artist.images | noimage" class="artist-banner-image">
           <div class="info">
-            <h1>{{artista.name}}</h1>
-            <span class="follower-count">{{artista.followers.total | number}} seguidores</span>
+            <h1>{{artist.name}}</h1>
+            <span class="follower-count">{{artist.followers.total | number}} seguidores</span>
             <p>
-                <a [href]="artista.external_urls.spotify" target="_blank">
+                <a [href]="artist.external_urls.spotify" target="_blank">
                 Ve a la pagina del artista
             </a>
             </p>

@@ -43,7 +43,7 @@ export class SpotifyService {
     return this._http.get(URL, HEADER);
   }
 
-  getProfile(): Observable<any>{
+  getProfile(): Observable<any> {
     return this.getQuery(`me`)
   }
 
@@ -55,14 +55,12 @@ export class SpotifyService {
     return !!this.credentials.accessToken;
   }
 
-
   tokenRefreshURL() {
     this.checkTokenSpo() && alert('Expiro la sesión');
     this.credentials.accessToken = '';
     sessionStorage.removeItem('token');
     this.checkTokenSpoLogin();
   }
-
 
   getNewReleases() {
     return this.getQuery("browse/new-releases")
@@ -81,12 +79,11 @@ export class SpotifyService {
       }));
   }
 
-
   getPlaylist(id: string) {
     return this.getQuery(`playlists/${id}`)
   }
 
-  getArtista(id: string) {
+  getArtist(id: string) {
     return this.getQuery(`artists/${id}`)
   }
 
@@ -104,18 +101,18 @@ export class SpotifyService {
       }));
   }
 
-  getMyPlaylists(){
+  getMyPlaylists() {
     return this.getQuery(`me/playlists?limit=12`)
   }
 
-  createPlaylist(name: string, description: string, userId:string): Observable<any> {
+  createPlaylist(name: string, description: string, userId: string): Observable<any> {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.credentials.accessToken}`
     });
-        const url = `${this.apiUrl}/users/${userId}/playlists`;
-        const body = { name, description };
-        const response = this._http.post(url, body, {headers});
-        return response;
+    const url = `${this.apiUrl}/users/${userId}/playlists`;
+    const body = { name, description };
+    const response = this._http.post(url, body, { headers });
+    return response;
   }
 
   getPlaylistTracks(id: string) {

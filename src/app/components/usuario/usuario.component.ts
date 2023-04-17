@@ -7,7 +7,7 @@ import { SpotifyService } from 'src/app/services/spotify.service';
   templateUrl: './usuario.component.html',
   styleUrls: ['./usuario.component.css']
 })
-export class UsuarioComponent implements OnInit {
+export class UserComponent implements OnInit {
 
   profile: any;
 

@@ -29,11 +29,3 @@ export class TracksPlaylistComponent implements OnInit {
     );
   }
   }
-
-    // getTopPlaylistTracks(id: string) {
-  //   this.spotify.getTopPlaylistTracks(id)
-  //     .subscribe(tracks => {
-  //       console.log(tracks)
-  //       this.topTracks = tracks
-  //     })
-  // }

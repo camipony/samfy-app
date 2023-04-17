@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SpotifyService } from 'src/app/services/spotify.service';
 @Component({
-  selector: 'app-artista',
-  templateUrl: './artista.component.html',
-  styleUrls: ['./artista.component.css']
+  selector: 'app-artist',
+  templateUrl: './artist.component.html',
+  styleUrls: ['./artist.component.css']
 })
-export class ArtistaComponent implements OnInit {
-  artista: any = {};
+export class ArtistComponent implements OnInit {
+  artist: any = {};
   topTracks: any = {};
   loadingArtist?: boolean;
   itemsPerPage = 10;
@@ -16,18 +16,17 @@ export class ArtistaComponent implements OnInit {
 
   constructor(private router: ActivatedRoute, private spotify: SpotifyService) {
     this.router.params.subscribe(params => {
-      // console.log(params["id"])
       this.loadingArtist = true;
-      this.getArtista(params["id"])
+      this.getArtist(params["id"])
       this.getTopTracks(params["id"])
     })
 
   }
 
-  getArtista(id: string) {
-    this.spotify.getArtista(id)
-      .subscribe(artista => {
-        this.artista = artista
+  getArtist(id: string) {
+    this.spotify.getArtist(id)
+      .subscribe(artist => {
+        this.artist = artist
         this.loadingArtist = false;
       })
   }
